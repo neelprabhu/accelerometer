@@ -5,7 +5,7 @@
 %   NONE
 % OUTPUTS:
 %   NONE
-
+%hi
 R = round(rand(200));
 Z = zeros(size(R,1));
 origin = [round((size(Z,2)-1)/2+1) round((size(Z,1)-1)/2+1)]; % "center" of the matrix
