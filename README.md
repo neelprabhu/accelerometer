@@ -1,2 +1,2 @@
-# accelerometer
-BME 271 Spring 2017
+# tremor
+BME 271 Final Project. Fall 2017.
