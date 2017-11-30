@@ -7,11 +7,12 @@
 %   NONE
 
 R = round(rand(200));
+R = im2bw(R);
 Z = zeros(size(R,1));
 origin = [round((size(Z,2)-1)/2+1) round((size(Z,1)-1)/2+1)]; % "center" of the matrix
 rad = size(R,1)./10;
 [x,y] = meshgrid((1:size(Z,2))-origin(1),(1:size(Z,1))-origin(2)); % grid
-Z(sqrt(x.^2 + y.^2) >= rad) = 1; % set points inside the radius equal to one
+Z(sqrt(x.^2 + y.^2) <= rad) = 1; % set points inside the radius equal to one
 
 F     = fft2(R);
 M     = abs(F);
@@ -26,12 +27,13 @@ filtsh  = fftshift(filt);
 filtshM = abs(filtsh);
 
 ift     = ifft2(filtsh);
+iftn    = ifft2(Fsh);
 magift  = abs(ift);
 filtlog = log(filt);
 
 figure(2)
 subplot(2,2,1)
-imshow(Z,[]), title('Low pass filter')
+imshow(log(FshM),[]), title('FT')
 subplot(2,2,2)
 imshow(log(filtM),[]), title('Filter .* |FFT|')
 subplot(2,2,3)
