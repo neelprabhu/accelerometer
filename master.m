@@ -120,17 +120,17 @@ subplot(1,2,2)
 plot(abs(fft(wy)),'k-')
 title('y filt')
 
-% %% Filter
-% ax = [-5 5 -5 5];
-% humanT = filterTask(ax,length(wx));
-% 
-% sxT = xcorr(humanT(1,:)',wx);
-% syT = xcorr(humanT(2,:)',wy);
-% sxT = sxT(1:length(wx));
-% syT = syT(1:length(wy));
-% 
-% close all;
-% figure(4)
-% plot(humanT(:,1),humanT(:,2),'k-')
-% figure(5)
-% plot(sxT,syT,'ko')
+%% Filter
+ax = [-5 5 -5 5];
+humanT = filterTask(ax,length(wx));
+
+sxT = xcorr(humanT(1,:)',wx);
+syT = xcorr(humanT(2,:)',wy);
+sxT = sxT(1:length(wx));
+syT = syT(1:length(wy));
+
+close all;
+figure(4)
+plot(humanT(:,1),humanT(:,2),'k-')
+figure(5)
+plot(sxT,syT,'ko')
