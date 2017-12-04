@@ -28,51 +28,46 @@ switch trackFN
 end
 
 %% Perform tracking
-humanN = trackTask(xpath, ypath, ax);
-humanM = trackTask(xpath, ypath, ax);
+human = trackTask(xpath, ypath, ax);
 
 %% Calculate
-humanN = interpolator(humanN,xpath);
-humanM = interpolator(humanM,xpath);
-[wxN1,wyN1,sxN,syN] = wFind(humanN,xpath,ypath);
-[wxM1,wyM1,sxM,syM] = wFind(humanM,xpath,ypath);
+human = interpolator(human,xpath);
+[wx,wy,sx,sy] = wFind(human,xpath,ypath);
 
-save('trial1','wxN1','wyN1','wxM1','wyM1')
-
-figure(1)
-plot(abs(fft(wxN)),'b-')
-hold on
-plot(abs(fft(wxM)),'r-')
-title('x')
-
-figure(2)
-plot(abs(fft(wyN)),'b-')
-hold on
-plot(abs(fft(wyM)),'r-')
-title('y')
-
-%% Plot
 % figure(1)
-% plot(xpath,ypath,'k-')
+% plot(abs(fft(wxN)),'b-')
 % hold on
-% plot(human(1,:),human(2,:),'k.')
+% plot(abs(fft(wxM)),'r-')
+% title('x')
 % 
 % figure(2)
-% plot(xpath,ypath,'k-')
+% plot(abs(fft(wyN)),'b-')
 % hold on
-% plot(human(1,1:(end-1)),human(2,1:(end-1)),'k.')
-% plot(sx,sy,'k--')
-% 
-% wxF = abs(fft(wx));
-% wyF = abs(fft(wy));
-% 
-% figure(3)
-% subplot(1,2,1)
-% plot(wxF(1:round(end/2)),'k-')
-% title('x filt')
-% subplot(1,2,2)
-% plot(wyF(1:round(end/2)),'k-')
-% title('y filt')
+% plot(abs(fft(wyM)),'r-')
+% title('y')
+
+%% Plot
+figure(1)
+plot(xpath,ypath,'k-')
+hold on
+plot(human(:,1),human(:,2),'k.')
+
+figure(2)
+plot(xpath,ypath,'k-')
+hold on
+plot(human(1,1:(end-1)),human(2,1:(end-1)),'k.')
+plot(sx,sy,'k--')
+
+wxF = abs(fft(wx));
+wyF = abs(fft(wy));
+
+figure(3)
+subplot(1,2,1)
+plot(wxF(1:round(end/2)),'k-')
+title('x filt')
+subplot(1,2,2)
+plot(wyF(1:round(end/2)),'k-')
+title('y filt')
 
 % %% Filter
 % ax = [-5 5 -5 5];
