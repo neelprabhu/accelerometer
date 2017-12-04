@@ -34,22 +34,18 @@ humanM = trackTask(xpath, ypath, ax);
 %% Calculate
 humanN = interpolator(humanN,xpath);
 humanM = interpolator(humanM,xpath);
-[wxN1,wyN1,sxN,syN] = wFind(humanN,xpath,ypath);
-[wxM1,wyM1,sxM,syM] = wFind(humanM,xpath,ypath);
-
-save('trial1','wxN1','wyN1','wxM1','wyM1')
+[wxN,wyN,sxN,syN] = wFind(humanN,xpath,ypath);
+[wxM,wyM,sxM,syM] = wFind(humanM,xpath,ypath);
 
 figure(1)
 plot(abs(fft(wxN)),'b-')
 hold on
 plot(abs(fft(wxM)),'r-')
-title('x')
 
 figure(2)
-plot(abs(fft(wyN)),'b-')
+plot(abs(fft(wxN)),'b-')
 hold on
-plot(abs(fft(wyM)),'r-')
-title('y')
+plot(abs(fft(wxM)),'r-')
 
 %% Plot
 % figure(1)
