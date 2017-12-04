@@ -4,7 +4,7 @@
 
 %% Initialize, choose tracking function
 clear, clc
-trackFN = 'spiral';
+trackFN = 'butter';
 
 %% Generate tracking function
 switch trackFN
@@ -13,8 +13,8 @@ switch trackFN
         ypath = xpath;
         ax    = [0,4*pi,0,4*pi];
     case 'butter'
-        xpath = linspace(0,4*pi,200);
-        ypath = sin(xpath) + cos(xpath) + sin(xpath.*3) + (cos(xpath)).^2;
+        xpath = linspace(0,4*pi,300);
+        ypath = sin(xpath) + (sin(4.*xpath)).^2 + cos(xpath) + sin(xpath.*3) + (cos(xpath)).^2;
         ax    = [0,4*pi,-5,5];
     case 'sine'
         xpath = linspace(0,4*pi,200);
