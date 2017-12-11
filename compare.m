@@ -1,6 +1,6 @@
 % BME 271 Fall 2017
 % Tremor Reduction for Microsurgical Applications
-% compare: Compares
+% compare: Compares to find healthy baseline
 
 load trial1.mat
 load trial2.mat

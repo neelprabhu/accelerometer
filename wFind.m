@@ -1,6 +1,6 @@
 % BME 271 Fall 2017
 % Tremor Reduction for Microsurgical Applications
-% wFind: Master script that will allow training task and subsequent filt.
+% wFind: Finds w coefficients from Weiner Filter using optimization.
 % INPUTS:
 %   NONE
 % OUTPUTS:

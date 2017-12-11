@@ -1,6 +1,6 @@
 % BME 271 Fall 2017
 % Tremor Reduction for Microsurgical Applications
-% trackTask: Master script to track motion and make tremor reducing filter.
+% trackTask: Pursuit Tracking Task
 
 function track = trackTask(x,y,ax)
 
@@ -13,7 +13,7 @@ title('Get your mouse ready!')
 axis(ax)
 hold on
 
-pause(2)
+pause(3)
 k = 1;
 h = animatedline;
 for i = 1:length(x)

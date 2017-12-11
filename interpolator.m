@@ -1,10 +1,6 @@
 % BME 271 Fall 2017
 % Tremor Reduction for Microsurgical Applications
-% interpolator: Master script that will allow training task and subsequent filt.
-% INPUTS:
-%   NONE
-% OUTPUTS:
-%   w
+% interpolator: Interpolates if insufficient samples in human
 
 function human = interpolator(human,xpath)
 
@@ -20,8 +16,6 @@ if discrep < 0
         interp  = [xinterp yinterp];
         human   = [human(1:r(i),:); interp; human((r(i)+1):end,:)];
     end  
-%     xpath = xpath(1:(end+discrep));
-%     ypath = ypath(1:(end+discrep));
 else
     human = [human((discrep+1):end,1) human((discrep+1):end,2)];
 end
